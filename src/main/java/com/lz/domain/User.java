@@ -24,7 +24,7 @@ public class User implements Serializable {
 	@Id
 	@Column(name="user_id")
 	private Integer id;
-
+    @Column(name="user_name")
 	private String userName;
 
 	private String password;
@@ -37,8 +37,9 @@ public class User implements Serializable {
 
 	private Integer status;
 
+	@Column(name="create_time")
 	private Date createTime;
-
+	@Column(name="update_time")
 	private Date updateTime;
 
 	/**

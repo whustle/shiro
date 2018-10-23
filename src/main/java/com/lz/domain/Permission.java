@@ -27,7 +27,7 @@ public class Permission implements Serializable {
 	private String name;
 
 	private Integer pid;
-
+	@Column(name="parent_name")
 	private String parentName;
 
 	private Integer type;
