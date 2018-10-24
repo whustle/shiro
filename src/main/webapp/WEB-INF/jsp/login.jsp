@@ -17,14 +17,14 @@
 </head>
 <body>
 <div class="container-fluid" style="background-color:#9acfea;margin-left: 35%;margin-right: 35%">
-    <form >
+    <form action="#">
         <div class="form-group" style="margin-top: 20px">
             <div class="input-group">
                 <input type="text" name="search" class="form-control">
                 <label class="input-group-addon"><span class="glyphicon glyphicon-search"></span></label>
             </div>
         </div>
-        <span style="margin: auto 0">用户注册</span>
+        <span style="margin: auto 0">用户登陆</span>
         <div class="form-group">
             <div class="input-group">
                 <label class="input-group-addon"><span class="glyphicon glyphicon-user"></span></label>
@@ -37,7 +37,7 @@
                 <input type="password" name="password" class="form-control">
             </div>
         </div>
-        <div class="form-group">
+        <%--<div class="form-group">
             <div class="input-group text-success">
                 <label class="checkbox-inline"><input type="checkbox" name="like" value="sing">唱歌</label>
                 <label class="checkbox-inline"><input type="checkbox" name="like" value="dance">跳舞</label>
@@ -50,9 +50,9 @@
                 <label class="radio-inline"><input type="radio" name="sex" value="male" checked="checked">男</label>
                 <label class="radio-inline"><input type="radio" name="sex" value="female">女</label>
             </div>
-        </div>
+        </div>--%>
         <div class="form-group">
-            <button class="btn btn-danger btn-lg active">注册</button><input class="btn btn-info" type="submit" value="提交">
+            <input class="btn btn-info" type="submit" value="登陆">
         </div>
 
     </form>
