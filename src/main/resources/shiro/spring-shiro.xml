@@ -11,8 +11,11 @@
         <!-- 过虑器链定义，从上向下顺序执行，一般将/**放在最下边 -->
         <property name="filterChainDefinitions">
             <value>
+                /css/**=anon
+                /js/**=anon
+                /image/**=anon
                 /login=anon
-                /**=
+                /**=authc
             </value>
         </property>
     </bean>
