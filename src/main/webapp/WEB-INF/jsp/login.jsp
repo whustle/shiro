@@ -17,14 +17,15 @@
 </head>
 <body>
 <div class="container-fluid" style="background-color:#9acfea;margin-left: 35%;margin-right: 35%">
-    <form action="#">
+    <form action="login" method="post">
         <div class="form-group" style="margin-top: 20px">
             <div class="input-group">
                 <input type="text" name="search" class="form-control">
                 <label class="input-group-addon"><span class="glyphicon glyphicon-search"></span></label>
             </div>
         </div>
-        <span style="margin: auto 0">用户登陆</span>
+        <h3><span style="margin: auto 0">用户登陆</span></h3>
+        <h4><span style="color: #ff1e19;height: 20px">${errorMsg}</span></h4>
         <div class="form-group">
             <div class="input-group">
                 <label class="input-group-addon"><span class="glyphicon glyphicon-user"></span></label>

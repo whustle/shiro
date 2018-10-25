@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-					http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+					    http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/aop
+                        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- Shiro 的Web过滤器 -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
@@ -12,6 +15,7 @@
         <!-- 过虑器链定义，从上向下顺序执行，一般将/**放在最下边 -->
         <property name="filterChainDefinitions">
             <value>
+                /logout=logout
                 /css/**=anon
                 /js/**=anon
                 /image/**=anon
@@ -26,10 +30,26 @@
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="userRealm" />
     </bean>
-
+    <!--加密器-->
+    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+        <!--加密算法-->
+        <property name="hashAlgorithmName" value="md5"/>
+        <!--散列次数-->
+        <property name="hashIterations" value="3"/>
+    </bean>
     <!-- 自定义 realm -->
-    <bean id="userRealm" class="com.lz.web.realms.UserRealm"/>
+    <bean id="userRealm" class="com.lz.web.realms.UserRealm">
+        <property name="credentialsMatcher" ref="credentialsMatcher"/>
+    </bean>
+    <!-- 开启aop，对类代理 -->
+    <aop:config proxy-target-class="true"/>
 
+    <!-- 开启shiro注解支持 -->
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+    <!--缓存ehcache-->
+    <!-- 缓存配置  -->
 
 </beans>
 

@@ -1,7 +1,9 @@
 package test;
 
 import com.lz.service.PermissionService;
+import com.lz.service.UserService;
 import com.lz.service.impl.PermissionServiceImpl;
+import com.lz.service.impl.UserServiceImpl;
 import org.junit.Test;
 
 /**
@@ -17,7 +19,5 @@ public class Test1 {
 		PermissionService p=new PermissionServiceImpl();
 		System.out.println(p.getClass());
 		String name = p.getClass().getName();
-		System.out.println(name);
-
 	}
 }

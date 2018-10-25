@@ -10,4 +10,5 @@ import com.lz.domain.User;
  */
 
 public interface UserService extends BaseService<User>{
+	User findUserByUserName(String username);
 }

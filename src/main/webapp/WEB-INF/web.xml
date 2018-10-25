@@ -11,8 +11,8 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-      classpath:spring/spring-*.xml
       classpath:shiro/spring-shiro.xml
+      classpath:spring/spring-*.xml
     </param-value>
   </context-param>
   <!-- spring容器 end -->

@@ -21,4 +21,10 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 	protected Mapper<User> getMapper() {
 		return this.userDao;
 	}
+
+	@Override
+	public User findUserByUserName(String username) {
+		User user = userDao.findUserByUserName(username);
+		return user;
+	}
 }

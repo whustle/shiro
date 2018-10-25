@@ -46,6 +46,7 @@
       <version>3.8.1</version>
     </dependency>
 
+
     <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper -->
     <dependency>
       <groupId>org.apache.tomcat</groupId>
@@ -183,6 +184,19 @@
       <artifactId>shiro-spring</artifactId>
       <version>1.4.0</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/net.sf.ehcache/ehcache-core -->
+    <dependency>
+      <groupId>net.sf.ehcache</groupId>
+      <artifactId>ehcache-core</artifactId>
+      <version>2.6.11</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-ehcache -->
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-ehcache</artifactId>
+      <version>1.4.0</version>
+    </dependency>
+
 
   </dependencies>
 

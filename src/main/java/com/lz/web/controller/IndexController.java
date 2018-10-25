@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * IndexController class
  *
  * @author wjh
- * @date 2018/10/24
+ * @date 2018/10/25
  */
 @Controller
 public class IndexController {
