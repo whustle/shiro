@@ -16,7 +16,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
-    <spring.version>4.2.0.RELEASE</spring.version>
+    <spring.version>4.3.10.RELEASE</spring.version>
     <mybatis.version>3.4.2</mybatis.version>
     <mybatis.spring.version>1.3.0</mybatis.spring.version>
     <mysql.version>6.0.6</mysql.version>
@@ -104,7 +104,12 @@
       <artifactId>spring-context</artifactId>
       <version>${spring.version}</version>
     </dependency>
-    <dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context-support</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+      <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>1.18.2</version>
@@ -178,6 +183,12 @@
       <groupId>org.apache.shiro</groupId>
       <artifactId>shiro-core</artifactId>
       <version>1.4.0</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>slf4j-api</artifactId>
+          <groupId>org.slf4j</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.apache.shiro</groupId>
@@ -185,19 +196,12 @@
       <version>1.4.0</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/net.sf.ehcache/ehcache-core -->
+    <!-- https://mvnrepository.com/artifact/org.crazycake/shiro-redis -->
     <dependency>
-      <groupId>net.sf.ehcache</groupId>
-      <artifactId>ehcache-core</artifactId>
-      <version>2.6.11</version>
+      <groupId>org.crazycake</groupId>
+      <artifactId>shiro-redis</artifactId>
+      <version>3.1.0</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-ehcache -->
-    <dependency>
-      <groupId>org.apache.shiro</groupId>
-      <artifactId>shiro-ehcache</artifactId>
-      <version>1.4.0</version>
-    </dependency>
-
-
   </dependencies>
 
   <build>

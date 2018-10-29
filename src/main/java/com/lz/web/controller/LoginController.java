@@ -41,4 +41,5 @@ public class LoginController {
 		/*此方法不处理认证成功，成功后会自动跳转到上一个请求路径*/
 		return "login";
 	}
+
 }

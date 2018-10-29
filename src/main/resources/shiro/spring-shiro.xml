@@ -2,17 +2,24 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 					    http://www.springframework.org/schema/beans/spring-beans.xsd
                         http://www.springframework.org/schema/aop
-                        http://www.springframework.org/schema/aop/spring-aop.xsd">
+                        http://www.springframework.org/schema/aop/spring-aop.xsd
+                        http://www.springframework.org/schema/mvc
+						http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="realm" ref="userRealm" />
+    </bean>
     <!-- Shiro 的Web过滤器 -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager" />
         <property name="loginUrl" value="/login"/>
-        <property name="unauthorizedUrl" value="/unautho.jsp" />
         <!-- 过虑器链定义，从上向下顺序执行，一般将/**放在最下边 -->
+
         <property name="filterChainDefinitions">
             <value>
                 /logout=logout
@@ -21,14 +28,10 @@
                 /image/**=anon
                 /fonts/**=anon
                 /index=anon
+                /find=anon
                 /**=authc
             </value>
         </property>
-    </bean>
-
-    <!-- 安全管理器 -->
-    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
-        <property name="realm" ref="userRealm" />
     </bean>
     <!--加密器-->
     <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
@@ -41,15 +44,14 @@
     <bean id="userRealm" class="com.lz.web.realms.UserRealm">
         <property name="credentialsMatcher" ref="credentialsMatcher"/>
     </bean>
-    <!-- 开启aop，对类代理 -->
-    <aop:config proxy-target-class="true"/>
-
-    <!-- 开启shiro注解支持 -->
-    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
-        <property name="securityManager" ref="securityManager"/>
+    <!--配置redis缓存-->
+    <bean id="cacheManager" class="org.crazycake.shiro.RedisCacheManager">
+        <property name="redisManager" ref="redisManager"/>
     </bean>
-    <!--缓存ehcache-->
-    <!-- 缓存配置  -->
+    <bean id="redisManager" class="org.crazycake.shiro.RedisManager">
+        <property name="host" value="127.0.0.1"/>
+        <property name="port" value="6379"/>
+    </bean>
 
 </beans>
 

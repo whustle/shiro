@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
@@ -28,7 +29,12 @@ public class UserRealm extends AuthorizingRealm{
 
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-		return null;
+		User user = (User)principalCollection.getPrimaryPrincipal();
+		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+		User user1 = userService.findUserByUserName(user.getUsername());
+		info.addStringPermission("user:add");
+		System.out.println(user1.getId());
+		return info;
 	}
 
 	@Override
