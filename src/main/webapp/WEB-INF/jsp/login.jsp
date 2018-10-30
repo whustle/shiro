@@ -4,12 +4,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>登陆</title>
+    <%--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />--%>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
     <style type="text/css">
         .btn{
+            margin-left: 70px;
+            margin-right: 50px;
+        }
+        .checkbox{
             margin-left: 70px;
             margin-right: 50px;
         }
@@ -52,6 +57,9 @@
                 <label class="radio-inline"><input type="radio" name="sex" value="female">女</label>
             </div>
         </div>--%>
+        <div class="form-group">
+            <label class="checkbox"><input type="checkbox" name="rememberMe" value="true">记住密码</label>
+        </div>
         <div class="form-group">
             <input class="btn btn-info" type="submit" value="登陆">
         </div>

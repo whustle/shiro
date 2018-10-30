@@ -2,6 +2,8 @@ package com.lz.service;
 
 import com.lz.domain.Permission;
 
+import java.util.List;
+
 /**
  * PermissionService class
  *
@@ -10,5 +12,6 @@ import com.lz.domain.Permission;
  */
 
 public interface PermissionService extends BaseService<Permission>{
+	List<Permission> findPermissionByUserId(int id);
 
 }

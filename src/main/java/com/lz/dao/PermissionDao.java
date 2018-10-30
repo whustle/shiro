@@ -3,6 +3,8 @@ package com.lz.dao;
 import com.lz.domain.Permission;
 import tk.mybatis.mapper.common.Mapper;
 
+import java.util.List;
+
 /**
  * PermissionDao class
  *
@@ -11,4 +13,5 @@ import tk.mybatis.mapper.common.Mapper;
  */
 
 public interface PermissionDao extends Mapper<Permission> {
+	List<Permission> findPerssionByUserId(int id);
 }

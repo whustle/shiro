@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.common.Mapper;
 
+import java.util.List;
+
 /**
  * PermissionServiceImpl class
  *
@@ -20,5 +22,11 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
 	@Override
 	protected Mapper<Permission> getMapper() {
 		return this.permissionDao;
+	}
+
+	@Override
+	public List<Permission> findPermissionByUserId(int id) {
+		List<Permission> list = permissionDao.findPerssionByUserId(id);
+		return list;
 	}
 }
